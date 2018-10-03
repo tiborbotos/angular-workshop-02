@@ -7,13 +7,22 @@ export default class UserListComponent {
     };
   }
 
-  constructor() {
+  constructor($scope) {
+    this.$scope = $scope;
     this.users = [];
 
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then((json) => {
-        this.users = json;
+        this.$scope.$apply(() => {
+          this.users = json;
+        });
       });
+
+    this.$scope.$on('selectDomain', (event, data) => {
+      this.users.forEach((user) => {
+        user.$selected = user.email.endsWith(data.domain);
+      });
+    });
   }
 }

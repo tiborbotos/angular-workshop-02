@@ -7,12 +7,13 @@
     <th></th>
     </thead>
     <tbody>
-    <tr ng-repeat="user in $ctrl.users">
+    <tr ng-repeat="user in $ctrl.users"
+        ng-class="{'text-primary': user.$selected}">
       <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
       <td>
-        <user-actions></user-actions>
+        <user-actions user="user"></user-actions>
       </td>
     </tr>
     </tbody>
