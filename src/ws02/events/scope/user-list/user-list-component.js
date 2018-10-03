@@ -23,6 +23,9 @@ export default class UserListComponent {
       this.users.forEach((user) => {
         user.$selected = user.email.endsWith(data.domain);
       });
+
+      const filteredUsers = this.users.filter(user => user.$selected);
+      this.$scope.$emit('selectUsers', { users: filteredUsers });
     });
   }
 }
