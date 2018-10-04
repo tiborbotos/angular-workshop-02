@@ -19,4 +19,8 @@ export default class ActionBarComponent {
       this.selectedUsers = data.users;
     });
   }
+
+  pingUsers() {
+    this.$rootScope.$broadcast('pingUsers');
+  }
 }

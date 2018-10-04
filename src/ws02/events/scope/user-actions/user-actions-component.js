@@ -12,6 +12,10 @@ export default class UserActionsComponent {
 
   constructor($scope) {
     this.$scope = $scope;
+
+    this.$scope.$on('pingUsers', () => {
+      this.pinging = true;
+    });
   }
 
   selectDomain() {
