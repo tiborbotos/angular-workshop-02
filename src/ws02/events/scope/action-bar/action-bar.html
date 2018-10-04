@@ -17,4 +17,6 @@
             class="badge badge-info">{{selectedUser.name}}</span>
     </div>
   </div>
+
+  <user-creator ng-if="$ctrl.isUserCreating" on-save="$ctrl.saveUser()" new-user="$ctrl.newUser"></user-creator>
 </div>

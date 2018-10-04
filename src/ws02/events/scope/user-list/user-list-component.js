@@ -27,5 +27,15 @@ export default class UserListComponent {
       const filteredUsers = this.users.filter(user => user.$selected);
       this.$scope.$emit('selectUsers', { users: filteredUsers });
     });
+
+    this.$scope.$on('saveUser', (event, data) => {
+      if (data.id) {
+        const ind = this.users.findIndex((u) => u.id === data.id);
+        this.users[ind] = data;
+      } else {
+        data.id = this.users.length + 1;
+        this.users.push(data);
+      }
+    });
   }
 }

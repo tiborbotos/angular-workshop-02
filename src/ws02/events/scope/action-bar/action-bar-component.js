@@ -18,9 +18,23 @@ export default class ActionBarComponent {
     this.$rootScope.$on('selectUsers', (event, data) => {
       this.selectedUsers = data.users;
     });
+
+    this.$rootScope.$on('editUser', () => {
+      this.isUserCreating = true;
+    });
   }
 
   pingUsers() {
     this.$rootScope.$broadcast('pingUsers');
+  }
+
+  createUser() {
+    this.newUser = {};
+    this.isUserCreating = true;
+  }
+
+  saveUser() {
+    this.isUserCreating = false;
+    this.$rootScope.$broadcast('saveUser', this.newUser);
   }
 }
