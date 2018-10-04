@@ -22,6 +22,12 @@ export default class ActionBarComponent {
     this.$rootScope.$on('editUser', () => {
       this.isUserCreating = true;
     });
+
+    this.$scope.$watch('$ctrl.newUser', (newValue, oldValue) => {
+      this.createUserDisabled = newValue && !newValue.username && !newValue.email;
+
+      // this.newUser.id = (this.newUser.id + 1) || 0;
+    }, true);
   }
 
   pingUsers() {

@@ -2,7 +2,8 @@
   <div class="row margin-bottom margin-top">
     <div class="col">
       <button class="btn btn-primary"
-              ng-click="$ctrl.createUser()">Create user
+              ng-click="$ctrl.createUser()"
+              ng-disabled="$ctrl.createUserDisabled">Create user
       </button>
       <button class="btn btn-primary"
               ng-click="$ctrl.pingUsers()">Ping users
