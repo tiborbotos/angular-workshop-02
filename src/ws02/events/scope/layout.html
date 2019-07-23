@@ -1,7 +1,45 @@
-<div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-default">Hey</button>
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="col">
+  <br>
+  <p class="h2">todo list</p>
+  <br>
+
+  <div class="input-group mb-3">
+    <input ng-model="$ctrl.newTodo" type="text" class="form-control" aria-describedby="button-addon2">
+    <div class="input-group-append">
+      <button ng-click="$ctrl.onAdd()" class="btn btn-warning" type="button" id="button-addon2">Add todo</button>
+    </div>
   </div>
-  <!--<user-actions></user-actions>-->
-  <!--<user-list></user-list>-->
 </div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">todo</th>
+    <th scope="col">edit</th>
+    <th scope="col">delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="todo in $ctrl.todoList">
+    <th class="id" scope="row">{{$index + 1}}</th>
+    <td>{{todo}}</td>
+    <td class="edit">
+      <button class="btn btn-outline-primary">
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+    </td>
+    <td class="delete">
+      <button ng-click="$ctrl.onDelete($index)" class="btn btn-outline-danger">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
