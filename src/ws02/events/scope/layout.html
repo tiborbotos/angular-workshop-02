@@ -12,12 +12,15 @@
     <input
       ng-model="$ctrl.newTodo"
       ng-keyup="$ctrl.onEnter($event)"
-      type="text" class="form-control"
+      ng-show="$ctrl.editIndex === null"
+      type="text"
+      class="form-control"
       aria-describedby="button-addon2">
     <div class="input-group-append">
       <button
         ng-class="{'btn-danger': $ctrl.newTodo === ''}"
         ng-click="$ctrl.onAdd()"
+        ng-show="$ctrl.editIndex === null"
         class="btn btn-warning"
         ng-disabled="$ctrl.newTodo === ''"
         type="button"
@@ -55,12 +58,18 @@
         </div>
       </td>
       <td class="edit">
-        <button ng-click="$ctrl.onEdit($index)" class="btn btn-outline-primary">
+        <button
+          ng-if="$ctrl.editIndex === null"
+          ng-click="$ctrl.onEdit($index)"
+          class="btn btn-outline-primary">
           <i class="fas fa-pencil-alt"></i>
         </button>
       </td>
       <td class="delete">
-        <button ng-click="$ctrl.onDelete($index)" class="btn btn-outline-danger">
+        <button
+          ng-if="$ctrl.editIndex === null"
+          ng-click="$ctrl.onDelete($index)"
+          class="btn btn-outline-danger">
           <i class="fas fa-trash-alt"></i>
         </button>
       </td>

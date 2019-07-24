@@ -8,7 +8,6 @@ export default class LayoutComponent {
 
   newTodo = "";
   todoList = ['walk the dog', 'shopping'];
- // isEdited = false;
   editIndex = null;
   editedTodo = null;
 
