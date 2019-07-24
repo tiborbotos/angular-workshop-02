@@ -36,20 +36,35 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="todo in $ctrl.todoList">
-    <th class="id" scope="row">{{$index + 1}}</th>
-    <td>{{todo}}</td>
-    <td class="edit">
-      <button class="btn btn-outline-primary">
-        <i class="fas fa-pencil-alt"></i>
-      </button>
-    </td>
-    <td class="delete">
-      <button ng-click="$ctrl.onDelete($index)" class="btn btn-outline-danger">
-        <i class="fas fa-trash-alt"></i>
-      </button>
-    </td>
-  </tr>
+    <tr ng-repeat="todo in $ctrl.todoList">
+      <th class="id" scope="row">{{$index + 1}}</th>
+      <td>
+        <div ng-if="$index === $ctrl.editIndex">
+          <input class="form-control"
+                 ng-keyup="$ctrl.onOk($event)"
+                 ng-model="$ctrl.editedTodo">
+          <button class="btn btn-success"
+            ng-click="$ctrl.onUpdate()">
+            <i class="fas fa-check"></i>
+          </button>
+          <button class="btn btn-danger"
+            ng-click="$ctrl.onCancel()">cancel</button>
+        </div>
+        <div ng-if="$index !== $ctrl.editIndex">
+          {{todo}}
+        </div>
+      </td>
+      <td class="edit">
+        <button ng-click="$ctrl.onEdit($index)" class="btn btn-outline-primary">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+      </td>
+      <td class="delete">
+        <button ng-click="$ctrl.onDelete($index)" class="btn btn-outline-danger">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
   </tbody>
 </table>
 </body>
