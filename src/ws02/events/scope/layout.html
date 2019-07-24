@@ -9,9 +9,19 @@
   <br>
 
   <div class="input-group mb-3">
-    <input ng-model="$ctrl.newTodo" type="text" class="form-control" aria-describedby="button-addon2">
+    <input
+      ng-model="$ctrl.newTodo"
+      ng-keyup="$ctrl.onEnter($event)"
+      type="text" class="form-control"
+      aria-describedby="button-addon2">
     <div class="input-group-append">
-      <button ng-click="$ctrl.onAdd()" class="btn btn-warning" type="button" id="button-addon2">Add todo</button>
+      <button
+        ng-class="{'btn-danger': $ctrl.newTodo === ''}"
+        ng-click="$ctrl.onAdd()"
+        class="btn btn-warning"
+        ng-disabled="$ctrl.newTodo === ''"
+        type="button"
+        id="button-addon2">Add todo</button>
     </div>
   </div>
 </div>

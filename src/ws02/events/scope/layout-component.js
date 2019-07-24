@@ -10,11 +10,19 @@ export default class LayoutComponent {
   todoList = ['walk the dog', 'shopping'];
 
   onAdd(){
-    this.todoList.push(this.newTodo);
-    this.newTodo = "";
+    if (this.newTodo.length > 0){
+      this.todoList.push(this.newTodo);
+      this.newTodo = "";
+    }
   }
 
   onDelete(index){
     this.todoList.splice(index, 1);
+  }
+
+  onEnter(event){
+    if (event.which === 13){
+      this.onAdd();
+    }
   }
 }
