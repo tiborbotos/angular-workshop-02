@@ -46,7 +46,6 @@ export default class LayoutComponent {
 
   onOk(event){
     if (event.which === 13){
-      console.log('enter');
       this.onUpdate();
     }
   }

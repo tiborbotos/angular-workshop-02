@@ -8,6 +8,7 @@
   <p class="h2">todo list</p>
   <br>
 
+  <!-- input and add button -->
   <div class="input-group mb-3">
     <input
       ng-model="$ctrl.newTodo"
@@ -16,6 +17,7 @@
       type="text"
       class="form-control"
       aria-describedby="button-addon2">
+
     <div class="input-group-append">
       <button
         ng-class="{'btn-danger': $ctrl.newTodo === ''}"
@@ -38,42 +40,53 @@
     <th scope="col">delete</th>
   </tr>
   </thead>
+
   <tbody>
-    <tr ng-repeat="todo in $ctrl.todoList">
-      <th class="id" scope="row">{{$index + 1}}</th>
-      <td>
-        <div ng-if="$index === $ctrl.editIndex">
-          <input class="form-control"
-                 ng-keyup="$ctrl.onOk($event)"
-                 ng-model="$ctrl.editedTodo">
-          <button class="btn btn-success"
-            ng-click="$ctrl.onUpdate()">
-            <i class="fas fa-check"></i>
-          </button>
-          <button class="btn btn-danger"
-            ng-click="$ctrl.onCancel()">cancel</button>
-        </div>
-        <div ng-if="$index !== $ctrl.editIndex">
-          {{todo}}
-        </div>
-      </td>
-      <td class="edit">
-        <button
-          ng-if="$ctrl.editIndex === null"
-          ng-click="$ctrl.onEdit($index)"
-          class="btn btn-outline-primary">
-          <i class="fas fa-pencil-alt"></i>
+  <tr ng-repeat="todo in $ctrl.todoList">
+    <th class="id" scope="row">{{$index + 1}}</th>
+    <td>
+      <div ng-if="$index === $ctrl.editIndex">
+        <input class="form-control"
+               ng-keyup="$ctrl.onOk($event)"
+               ng-model="$ctrl.editedTodo">
+
+        <!-- save button for update-->
+        <button class="btn btn-success"
+                ng-click="$ctrl.onUpdate()">
+          <i class="fas fa-check"></i>
         </button>
-      </td>
-      <td class="delete">
-        <button
-          ng-if="$ctrl.editIndex === null"
-          ng-click="$ctrl.onDelete($index)"
-          class="btn btn-outline-danger">
-          <i class="fas fa-trash-alt"></i>
-        </button>
-      </td>
-    </tr>
+
+        <!-- cancel button for update -->
+        <button class="btn btn-danger"
+                ng-click="$ctrl.onCancel()">cancel</button>
+      </div>
+      <div ng-if="$index !== $ctrl.editIndex"
+           ng-click="$ctrl.onEdit($index)">
+        {{todo}}
+      </div>
+    </td>
+
+    <!-- edit todoItem button -->
+    <td class="edit">
+      <button
+        ng-if="$ctrl.editIndex === null"
+        ng-click="$ctrl.onEdit($index)"
+        class="btn btn-outline-primary">
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+    </td>
+
+    <!-- delete todoItem button -->
+    <td class="delete">
+      <button
+        ng-if="$ctrl.editIndex === null"
+        ng-click="$ctrl.onDelete($index)"
+        class="btn btn-outline-danger">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+
+  </tr>
   </tbody>
 </table>
 </body>
