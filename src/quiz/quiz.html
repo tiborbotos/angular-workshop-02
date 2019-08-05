@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quiz</title>
+</head>
+<body>
+<div class="container">
+  <h2>welcome to this awesome quiz</h2>
+  <br>
+
+
+
+
+
+  <div ng-repeat="kerdes in $ctrl.kerdesek" class="q-and-a">
+
+          <div>{{kerdes.kerdes}}</div>
+          <br>
+
+          <div class="options">
+            <label>
+              <input type="radio" ng-model="kerdes.selected" value="1">
+              {{kerdes.opcio1}}
+            </label>
+
+
+          <div class="option">
+            <label>
+              <input type="radio" ng-model="kerdes.selected" value="2">
+              {{kerdes.opcio2}}
+            </label>
+          </div>
+
+          <div class="option">
+            <label>
+              <input type="radio" ng-model="kerdes.selected" value="3">
+              {{kerdes.opcio3}}
+            </label>
+          </div>
+
+          <br>
+
+          <div class="answer">
+            Valasztasod: {{kerdes.selected}}
+<!--            Valasztasod: {{$ctrl.kerdesek[$index].selected}}-->
+          </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
