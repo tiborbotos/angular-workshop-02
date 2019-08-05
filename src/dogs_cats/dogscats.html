@@ -1,0 +1,32 @@
+  <div class="container">
+    <h1 class="h1">choose which picture is cuter</h1>
+    <br>
+    <h3 ng-if="$ctrl.started" class="h3">{{ $ctrl.round }} / 5</h3>
+    <br>
+    <div ng-if="$ctrl.started" class="scale">
+      <div ng-class="{'scaleActive': $ctrl.round >= 1}" class="scale1"></div>
+      <div ng-class="{'scaleActive': $ctrl.round >= 2}" class="scale2"></div>
+      <div ng-class="{'scaleActive': $ctrl.round >= 3}" class="scale3"></div>
+      <div ng-class="{'scaleActive': $ctrl.round >= 4}" class="scale4"></div>
+      <div ng-class="{'scaleActive': $ctrl.round >= 5}" class="scale5"></div>
+    </div>
+    <br>
+
+    <div ng-if="$ctrl.started" class="catsdogsphoto">
+      <div class="cats">
+        <img class="cat" src="{{ $ctrl.currentCat}}" alt="cat">
+        <br>
+        <button ng-click="$ctrl.onCatClick()" class="catbutton">♥</button>
+      </div>
+
+      <div class="dogs">
+        <img class="dog" src="{{ $ctrl.currentDog}}" alt="dog">
+        <br>
+        <button ng-click="$ctrl.onDogClick()" class="dogbutton">♥</button>
+      </div>
+    </div>
+    <h3 class="h3" ng-if="!$ctrl.started">{{ $ctrl.result }}</h3>
+
+    <button ng-if="!$ctrl.started" class="startButton" ng-click="$ctrl.onStart()">start</button>
+
+  </div>

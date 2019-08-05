@@ -1,0 +1,90 @@
+body {
+  background-color: #C2EABD;
+}
+
+.h3 {
+  color: #1E2D2F;
+  margin-top: 30px;
+}
+
+.h1 {
+  margin-top: 30px;
+  color: #ED254E;
+}
+
+div {
+  text-align: center;
+}
+
+.scale {
+  justify-content: center;
+  display: flex;
+}
+
+.scale1, .scale2, .scale3, .scale4, .scale5 {
+  width: 50px;
+  height: 15px;
+  border: 1px solid #011936;
+}
+
+/*
+.scale1 {
+  background-color: #465362;
+}
+*/
+
+.scaleActive {
+  background-color: #465362;
+}
+
+.catsdogsphoto {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cat {
+  width: 500px;
+  height: 500px;
+  margin-top: 50px;
+  border: 5px solid #465362;
+  object-fit: cover;
+}
+
+.dog {
+  width: 500px;
+  height: 500px;
+  margin-top: 50px;
+  border: 5px solid #465362;
+  object-fit: cover;
+}
+
+.cats {
+  flex: 1;
+}
+
+.dogs {
+  flex: 1;
+}
+
+.buttons {
+  display: flex;
+}
+
+.catbutton {
+  margin-top: 20px;
+  width: 40px;
+  height: 30px;
+}
+
+.dogbutton {
+  margin-top: 20px;
+  width: 40px;
+  height: 30px;
+}
+
+.startButton {
+  margin-top: 50px;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+}
