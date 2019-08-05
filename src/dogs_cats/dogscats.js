@@ -59,15 +59,15 @@ export default class DogsCatsComponent {
 
   selectingCats() {
     for (let i = 0; i < 5; i++){
-      this.inGameCats.push(this.cats[Math.floor(Math.random() * this.cats.length)]);
+      // this.inGameCats.push(this.cats[Math.floor(Math.random() * this.cats.length)]);
+      this.inGameCats.push(this.cats[i]);
     }
-    //let num = this.cats[rand];
-    //this.cats.splice(rand,1);
   }
 
   selectingDogs() {
     for (let i = 0; i < 5; i++){
-      this.inGameDogs.push(this.dogs[Math.floor((Math.random() * this.dogs.length))]);
+      // this.inGameDogs.push(this.dogs[Math.floor((Math.random() * this.dogs.length))]);
+      this.inGameDogs.push(this.dogs[i]);
     }
   }
 
@@ -75,6 +75,9 @@ export default class DogsCatsComponent {
     this.inGameCats = [];
     this.inGameDogs = [];
     this.round ++;
+    this.shuffle(this.cats);
+    this.shuffle(this.dogs);
+
     this.selectingCats();
     this.selectingDogs();
 
@@ -100,7 +103,7 @@ export default class DogsCatsComponent {
       this.result = 'cat person';
     } else if (this.dogCounter > this.catCounter) {
       console.log('more dogs liked');
-      this.result = 'more dogs have been liked';
+      this.result = 'dog person';
     } else {
       console.log('same cats and dogs liked');
       this.result = 'you like dogs and cats equally';
@@ -109,5 +112,13 @@ export default class DogsCatsComponent {
     this.started = false;
     this.catCounter = 0;
     this.dogCounter = 0;
+  }
+
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
 }
