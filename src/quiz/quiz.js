@@ -32,5 +32,22 @@ export default class QuizComponent {
         valasz: 2,
         selected: null,
       }];
+    this.correct = 0;
+    this.gameOn = true;
+  }
+
+  onSubmit() {
+    this.gameOn = false;
+    for (let i = 0; i < this.kerdesek.length; i++) {
+      console.log(this.kerdesek[i].valasz.toString());
+      console.log(this.kerdesek[i].selected);
+      if (this.kerdesek[i].selected === this.kerdesek[i].valasz.toString()) {
+        console.log('correct');
+        this.correct++;
+      } else {
+        console.log('not correct');
+      }
+    }
+    console.log('correct answers: ' + this.correct);
   }
 }

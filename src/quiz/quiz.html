@@ -9,12 +9,7 @@
   <h2>welcome to this awesome quiz</h2>
   <br>
 
-
-
-
-
   <div ng-repeat="kerdes in $ctrl.kerdesek" class="q-and-a">
-
           <div>{{kerdes.kerdes}}</div>
           <br>
 
@@ -43,16 +38,14 @@
 
           <div class="answer">
             Valasztasod: {{kerdes.selected}}
-<!--            Valasztasod: {{$ctrl.kerdesek[$index].selected}}-->
+           <!--  Valasztasod: {{$ctrl.kerdesek[$index].selected}}-->
           </div>
   </div>
-
-
-
-
-
-
 </div>
 
+  <button ng-if="$ctrl.gameOn" ng-click="$ctrl.onSubmit()" class="submit-button">submit</button>
+  <div ng-if="!$ctrl.gameOn" class="result">{{$ctrl.correct}} correct </div>
+
+</div>
 </body>
 </html>
