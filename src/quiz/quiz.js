@@ -39,6 +39,7 @@ export default class QuizComponent {
   onStart() {
     this.correct = 0;
     this.gameOn = true;
+    this.shuffle(this.kerdesek);
     for (let i = 0; i < this.kerdesek.length; i++) {
       this.kerdesek[i].selected = null;
     }
@@ -47,8 +48,8 @@ export default class QuizComponent {
   onSubmit() {
     this.gameOn = false;
     for (let i = 0; i < this.kerdesek.length; i++) {
-      console.log(this.kerdesek[i].valasz.toString());
-      console.log(this.kerdesek[i].selected);
+      // console.log(this.kerdesek[i].valasz.toString());
+      // console.log(this.kerdesek[i].selected);
       if (this.kerdesek[i].selected === this.kerdesek[i].valasz.toString()) {
         console.log('correct');
         this.correct++;
@@ -57,5 +58,13 @@ export default class QuizComponent {
       }
     }
     console.log('correct answers: ' + this.correct);
+  }
+
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
 }
