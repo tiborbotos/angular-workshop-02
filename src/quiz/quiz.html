@@ -1,43 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>quiz</title>
-</head>
-<body>
 <div class="container">
-  <h2>welcome to this awesome quiz</h2>
-  <br>
+  <question-header-component></question-header-component>
 
   <div ng-repeat="kerdes in $ctrl.kerdesek" class="q-and-a">
-          <div>{{kerdes.kerdes}}</div>
+    <question-component q-kerdes="kerdes" </question-component>
+    <!-- <div>{{kerdes.kerdes}}</div>
 
-          <div class="options">
-            <label>
-              <input type="radio" ng-model="kerdes.selected" value="1">
-              {{kerdes.opcio1}}
-            </label>
+     <div class="options">
+       <label>
+         <input type="radio" ng-model="kerdes.selected" value="1">
+         {{kerdes.opcio1}}
+       </label>
 
 
-          <div class="option">
-            <label>
-              <input type="radio" ng-model="kerdes.selected" value="2">
-              {{kerdes.opcio2}}
-            </label>
-          </div>
+     <div class="option">
+       <label>
+         <input type="radio" ng-model="kerdes.selected" value="2">
+         {{kerdes.opcio2}}
+       </label>
+     </div>
 
-          <div class="option">
-            <label>
-              <input type="radio" ng-model="kerdes.selected" value="3">
-              {{kerdes.opcio3}}
-            </label>
-          </div>
+     <div class="option">
+       <label>
+         <input type="radio" ng-model="kerdes.selected" value="3">
+         {{kerdes.opcio3}}
+       </label>
+     </div>
 
-         <!-- <div class="answer">
-            Valasztasod: {{kerdes.selected}}
-           &lt;!&ndash;  Valasztasod: {{$ctrl.kerdesek[$index].selected}}&ndash;&gt;
-          </div>-->
-  </div>
+    &lt;!&ndash; <div class="answer">
+       Valasztasod: {{kerdes.selected}}
+      &lt;!&ndash;  Valasztasod: {{$ctrl.kerdesek[$index].selected}}&ndash;&gt;
+     </div>&ndash;&gt;
+</div>-->
 </div>
 
   <button ng-if="$ctrl.gameOn" ng-click="$ctrl.onSubmit()" class="submit-button">submit</button>
@@ -45,5 +38,3 @@
   <button ng-if="!$ctrl.gameOn" ng-click="$ctrl.onStart()" class="retake">retake the quiz</button>
 
 </div>
-</body>
-</html>
