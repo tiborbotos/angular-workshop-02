@@ -45,6 +45,7 @@
 
   <button ng-if="$ctrl.gameOn" ng-click="$ctrl.onSubmit()" class="submit-button">submit</button>
   <div ng-if="!$ctrl.gameOn" class="result">{{$ctrl.correct}} correct </div>
+  <button ng-if="!$ctrl.gameOn" ng-click="$ctrl.onStart()" class="retake">retake the quiz</button>
 
 </div>
 </body>

@@ -36,6 +36,14 @@ export default class QuizComponent {
     this.gameOn = true;
   }
 
+  onStart() {
+    this.correct = 0;
+    this.gameOn = true;
+    for (let i = 0; i < this.kerdesek.length; i++) {
+      this.kerdesek[i].selected = null;
+    }
+  }
+
   onSubmit() {
     this.gameOn = false;
     for (let i = 0; i < this.kerdesek.length; i++) {
