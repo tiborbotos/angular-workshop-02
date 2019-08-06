@@ -1,38 +1,11 @@
 <div class="container">
   <question-header-component></question-header-component>
 
-  <div ng-repeat="kerdes in $ctrl.kerdesek" class="q-and-a">
-    <question-component q-kerdes="kerdes" </question-component>
-    <!-- <div>{{kerdes.kerdes}}</div>
+  <question-component ng-repeat="kerdes in $ctrl.kerdesek"
+                      class="q-and-a"
+                      q-kerdes="kerdes"></question-component>
 
-     <div class="options">
-       <label>
-         <input type="radio" ng-model="kerdes.selected" value="1">
-         {{kerdes.opcio1}}
-       </label>
-
-
-     <div class="option">
-       <label>
-         <input type="radio" ng-model="kerdes.selected" value="2">
-         {{kerdes.opcio2}}
-       </label>
-     </div>
-
-     <div class="option">
-       <label>
-         <input type="radio" ng-model="kerdes.selected" value="3">
-         {{kerdes.opcio3}}
-       </label>
-     </div>
-
-    &lt;!&ndash; <div class="answer">
-       Valasztasod: {{kerdes.selected}}
-      &lt;!&ndash;  Valasztasod: {{$ctrl.kerdesek[$index].selected}}&ndash;&gt;
-     </div>&ndash;&gt;
-</div>-->
-</div>
-
+<!--  <quiz-actions></quiz-actions>-->
   <button ng-if="$ctrl.gameOn" ng-click="$ctrl.onSubmit()" class="submit-button">submit</button>
   <div ng-if="!$ctrl.gameOn" class="result">{{$ctrl.correct}} correct </div>
   <button ng-if="!$ctrl.gameOn" ng-click="$ctrl.onStart()" class="retake">retake the quiz</button>
