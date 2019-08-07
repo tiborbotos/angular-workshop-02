@@ -1,0 +1,7 @@
+<button ng-if="$ctrl.bGameOn"
+        ng-click="$ctrl.parentSubmit()"
+        class="submit-button">submit</button>
+
+<button ng-if="!$ctrl.bGameOn"
+        ng-click="$ctrl.parentStart()"
+        class="retake-button">retake the quiz</button>
