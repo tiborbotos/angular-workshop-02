@@ -10,9 +10,8 @@
     b-on-start="$ctrl.onStart()">
   </quiz-actions-component>
 
-<!--  <button ng-if="$ctrl.gameOn" ng-click="$ctrl.onSubmit()" class="submit-button">submit</button>
-  <button ng-if="!$ctrl.gameOn" ng-click="$ctrl.onStart()" class="retake">retake the quiz</button>-->
+  <quiz-result-component b-game-on="$ctrl.gameOn" b-correct="$ctrl.correct"></quiz-result-component>
 
-  <div ng-if="!$ctrl.gameOn" class="result">{{$ctrl.correct}} correct </div>
+<!--  <div ng-if="!$ctrl.gameOn" class="result">{{$ctrl.correct}} correct </div>-->
 
 </div>

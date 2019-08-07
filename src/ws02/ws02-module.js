@@ -5,6 +5,7 @@ import QuizComponent from '../quiz/quiz';
 import QuestionComponent from '../question-component/question-component';
 import QuestionHeaderComponent from '../question-header/question-header';
 import QuizActionsComponent from '../quiz-actions/quiz-actions';
+import QuizResultComponent from '../quiz-result/quiz-result';
 
 export default angular
   .module('workshop-02', [])
@@ -14,4 +15,5 @@ export default angular
   .component('questionComponent', QuestionComponent.create())
   .component('questionHeaderComponent', QuestionHeaderComponent.create())
   .component('quizActionsComponent', QuizActionsComponent.create())
+  .component('quizResultComponent', QuizResultComponent.create())
   .name;
