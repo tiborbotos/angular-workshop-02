@@ -7,33 +7,80 @@ export default class QuizComponent {
   }
 
   constructor() {
-    this.kerdesek = [
-      {
-        kerdes: 'Hol van Afrika?',
-        opcio1: 'Delen',
-        opcio2: 'Eszakon',
-        opcio3: 'A helyen',
-        valasz: 1,
-        selected: null,
-      },
-      {
-        kerdes: 'Merre fuj a passzat szel?',
-        opcio1: 'Hol igy hol ugy',
-        opcio2: 'Eszakkelet',
-        opcio3: 'Del nyugat',
-        valasz: 1,
-        selected: null,
-      },
-      {
-        kerdes: 'Mikor pusztultak ki a dinok?',
-        opcio1: 'Sose voltak',
-        opcio2: '65 millio evvel ezelott',
-        opcio3: '65 000 000 000',
-        valasz: 2,
-        selected: null,
-      }];
+    this.kerdesek = {
+      foldrajz: [
+        {
+          kerdes: 'Hol van Afrika?',
+          opcio1: 'Delen',
+          opcio2: 'Eszakon',
+          opcio3: 'A helyen',
+          valasz: 1,
+        },
+        {
+          kerdes: 'Merre fuj a passzat szel?',
+          opcio1: 'Hol igy hol ugy',
+          opcio2: 'Eszakkelet',
+          opcio3: 'Del nyugat',
+          valasz: 1,
+        },
+        {
+          kerdes: 'Mikor pusztultak ki a dinok?',
+          opcio1: 'Sose voltak',
+          opcio2: '65 millio evvel ezelott',
+          opcio3: '65 000 000 000',
+          valasz: 2,
+        },
+      ],
+      kutyas: [
+        {
+          kerdes: 'Csivava vagy Yorki?',
+          opcio1: 'Csivava',
+          opcio2: 'Yorki',
+          valasz: 2,
+        },
+        {
+          kerdes: 'Hany labujja van egy kutyanak?',
+          opcio1: '18',
+          opcio2: '20',
+          opcio3: '4',
+          valasz: 2,
+        }
+      ],
+      macskas: [
+        {
+          kerdes: 'Csivava vagy Yorki?',
+          opcio1: 'Csivava',
+          opcio2: 'Yorki',
+          opcio3: 'Sziamiau',
+          valasz: 3,
+        },
+        {
+          kerdes: 'Meddig er egy macska?',
+          opcio1: 'A foldig',
+          opcio2: 'Ameddig akar',
+          opcio3: 'Nem',
+          valasz: 1,
+        }
+      ],
+    };
     this.correct = 0;
     this.status = 'welcome';
+    this.selectedTopic = '';
+  }
+
+  onTopicSelectorDropdown(topic) {
+    console.log(topic + ' has been selected');
+    this.selectedTopic = topic;
+  /*    if (topic === 'foci'){
+      return this.kerdesek.foldrajz;
+    } else if (topic === 'kutyas') {
+      return this.kerdesek.kutyas;
+    }
+    return this.kerdesek.macskas; */
+  }
+
+  getTopic() {
+    return this.kerdesek[this.selectedTopic];
   }
 
   onStart() {

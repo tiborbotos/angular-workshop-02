@@ -1,10 +1,13 @@
 <div class="container">
 
-  <start-component b-status="$ctrl.status"></start-component>
+  <start-component
+    b-select-topic="$ctrl.onTopicSelectorDropdown(topic)"
+    b-selected-topic="$ctrl.selectedTopic"
+    b-status="$ctrl.status"></start-component>
 
   <question-header-component ng-if="$ctrl.status === 'inGame'"></question-header-component>
 
-  <question-component ng-repeat="kerdes in $ctrl.kerdesek"
+  <question-component ng-repeat="kerdes in $ctrl.getTopic()"
                       ng-if="$ctrl.status === 'inGame'"
                       q-kerdes="kerdes"></question-component>
 

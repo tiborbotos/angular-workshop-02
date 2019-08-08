@@ -1,3 +1,11 @@
+<div class="type-select" ng-if="$ctrl.bStatus === 'welcome'">
+  <select name="types" ng-model="$ctrl.types">
+    <option value="foldrajz">Földrajzi</option>
+    <option value="kutyas">Kutyás</option>
+    <option value="macskas">Macskás</option>
+  </select>
+</div>
+
 <button
   ng-click="$ctrl.onStart()"
   ng-if="$ctrl.bStatus === 'welcome'">LET'S START THE FUN
