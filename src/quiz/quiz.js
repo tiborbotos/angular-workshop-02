@@ -33,12 +33,12 @@ export default class QuizComponent {
         selected: null,
       }];
     this.correct = 0;
-    this.gameOn = true;
+    this.status = 'welcome';
   }
 
   onStart() {
     this.correct = 0;
-    this.gameOn = true;
+    this.status = 'welcome';
     this.shuffle(this.kerdesek);
     for (let i = 0; i < this.kerdesek.length; i++) {
       this.kerdesek[i].selected = null;
@@ -46,7 +46,7 @@ export default class QuizComponent {
   }
 
   onSubmit() {
-    this.gameOn = false;
+    this.status = 'theEnd';
     for (let i = 0; i < this.kerdesek.length; i++) {
       // console.log(this.kerdesek[i].valasz.toString());
       // console.log(this.kerdesek[i].selected);

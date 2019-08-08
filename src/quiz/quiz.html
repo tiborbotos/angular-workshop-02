@@ -1,17 +1,21 @@
 <div class="container">
-  <question-header-component></question-header-component>
+
+  <start-component b-status="$ctrl.status"></start-component>
+
+  <question-header-component ng-if="$ctrl.status === 'inGame'"></question-header-component>
 
   <question-component ng-repeat="kerdes in $ctrl.kerdesek"
+                      ng-if="$ctrl.status === 'inGame'"
                       q-kerdes="kerdes"></question-component>
 
   <quiz-actions-component
-    b-game-on="$ctrl.gameOn"
+    b-status="$ctrl.status"
+    ng-if="$ctrl.status === 'inGame' || $ctrl.status === 'theEnd'"
     b-on-submit="$ctrl.onSubmit()"
     b-on-start="$ctrl.onStart()">
   </quiz-actions-component>
 
-  <quiz-result-component b-game-on="$ctrl.gameOn" b-correct="$ctrl.correct"></quiz-result-component>
-
-<!--  <div ng-if="!$ctrl.gameOn" class="result">{{$ctrl.correct}} correct </div>-->
+  <quiz-result-component b-status="$ctrl.status"
+                         b-correct="$ctrl.correct"></quiz-result-component>
 
 </div>

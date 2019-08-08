@@ -4,7 +4,7 @@ export default class QuizActionsComponent {
       template: require('./quiz-actions.html'),
       controller: QuizActionsComponent,
       bindings: {
-        bGameOn: '<',
+        bStatus: '<',
         bOnSubmit: '&',
         bOnStart: '&',
       },

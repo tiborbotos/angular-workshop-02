@@ -4,7 +4,7 @@ export default class QuizResultComponent {
       template: require('./quiz-result.html'),
       controller: QuizResultComponent,
       bindings: {
-        bGameOn: '<',
+        bStatus: '<',
         bCorrect: '<',
       },
     };
