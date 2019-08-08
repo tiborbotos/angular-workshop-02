@@ -15,6 +15,7 @@ export default class QuizComponent {
           opcio2: 'Eszakon',
           opcio3: 'A helyen',
           valasz: 1,
+          selected: null,
         },
         {
           kerdes: 'Merre fuj a passzat szel?',
@@ -22,6 +23,7 @@ export default class QuizComponent {
           opcio2: 'Eszakkelet',
           opcio3: 'Del nyugat',
           valasz: 1,
+          selected: null,
         },
         {
           kerdes: 'Mikor pusztultak ki a dinok?',
@@ -29,6 +31,7 @@ export default class QuizComponent {
           opcio2: '65 millio evvel ezelott',
           opcio3: '65 000 000 000',
           valasz: 2,
+          selected: null,
         },
       ],
       kutyas: [
@@ -36,7 +39,9 @@ export default class QuizComponent {
           kerdes: 'Csivava vagy Yorki?',
           opcio1: 'Csivava',
           opcio2: 'Yorki',
+          opcio3: 'Border Collie',
           valasz: 2,
+          selected: null,
         },
         {
           kerdes: 'Hany labujja van egy kutyanak?',
@@ -44,6 +49,7 @@ export default class QuizComponent {
           opcio2: '20',
           opcio3: '4',
           valasz: 2,
+          selected: null,
         }
       ],
       macskas: [
@@ -53,6 +59,7 @@ export default class QuizComponent {
           opcio2: 'Yorki',
           opcio3: 'Sziamiau',
           valasz: 3,
+          selected: null,
         },
         {
           kerdes: 'Meddig er egy macska?',
@@ -60,6 +67,7 @@ export default class QuizComponent {
           opcio2: 'Ameddig akar',
           opcio3: 'Nem',
           valasz: 1,
+          selected: null,
         }
       ],
     };
@@ -87,17 +95,18 @@ export default class QuizComponent {
     this.correct = 0;
     this.status = 'welcome';
     this.shuffle(this.kerdesek);
-    for (let i = 0; i < this.kerdesek.length; i++) {
-      this.kerdesek[i].selected = null;
+    for (let i = 0; i < this.kerdesek[this.selectedTopic].length; i++) {
+      this.kerdesek[this.selectedTopic][i].selected = null;
     }
   }
 
   onSubmit() {
     this.status = 'theEnd';
-    for (let i = 0; i < this.kerdesek.length; i++) {
+    for (let i = 0; i < this.kerdesek[this.selectedTopic].length; i++) {
+      // console.log(this.kerdesek[this.selectedTopic]);
       // console.log(this.kerdesek[i].valasz.toString());
       // console.log(this.kerdesek[i].selected);
-      if (this.kerdesek[i].selected === this.kerdesek[i].valasz.toString()) {
+      if (this.kerdesek[this.selectedTopic][i].selected === this.kerdesek[this.selectedTopic][i].valasz.toString()) {
         console.log('correct');
         this.correct++;
       } else {
