@@ -11,15 +11,13 @@ export default class StartComponent {
     };
   }
 
-  constructor() {
-
-  }
+  constructor() {}
 
   onStart() {
     this.bStatus = 'inGame';
     console.log('this is the start');
     if (this.bSelectTopic) {
-      this.bSelectTopic({ topic: this.types });
+      this.bSelectTopic({ topic: this.bSelectedTopic });
     }
   }
 }

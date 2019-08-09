@@ -7,9 +7,11 @@
 
   <question-header-component ng-if="$ctrl.status === 'inGame'"></question-header-component>
 
-  <question-component ng-repeat="kerdes in $ctrl.getTopic()"
-                      ng-if="$ctrl.status === 'inGame'"
-                      q-kerdes="kerdes"></question-component>
+  <div ng-if="$ctrl.status === 'inGame'">
+    <question-component ng-repeat="kerdes in $ctrl.getTopic()"
+                        q-kerdes="kerdes"></question-component>
+  </div>
+
 
   <quiz-actions-component
     b-status="$ctrl.status"

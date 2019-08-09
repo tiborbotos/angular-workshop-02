@@ -38,8 +38,7 @@ export default class QuizComponent {
         {
           kerdes: 'Csivava vagy Yorki?',
           opcio1: 'Csivava',
-          opcio2: 'Yorki',
-          opcio3: 'Border Collie',
+          opcio2: 'Border Collie',
           valasz: 2,
           selected: null,
         },
@@ -50,7 +49,7 @@ export default class QuizComponent {
           opcio3: '4',
           valasz: 2,
           selected: null,
-        }
+        },
       ],
       macskas: [
         {
@@ -68,12 +67,17 @@ export default class QuizComponent {
           opcio3: 'Nem',
           valasz: 1,
           selected: null,
-        }
+        },
       ],
     };
     this.correct = 0;
     this.status = 'welcome';
     this.selectedTopic = '';
+  }
+
+  $onInit() {
+    const shuffleTopic = this.selectedTopic === '' ? 'foldrajz' : this.selectedTopic;
+    this.kerdesek[shuffleTopic] = this.shuffle(this.kerdesek[shuffleTopic]);
   }
 
   onTopicSelectorDropdown(topic) {
@@ -87,6 +91,14 @@ export default class QuizComponent {
     return this.kerdesek.macskas; */
   }
 
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   getTopic() {
     return this.kerdesek[this.selectedTopic];
   }
@@ -94,10 +106,11 @@ export default class QuizComponent {
   onStart() {
     this.correct = 0;
     this.status = 'welcome';
-    this.shuffle(this.kerdesek);
     for (let i = 0; i < this.kerdesek[this.selectedTopic].length; i++) {
       this.kerdesek[this.selectedTopic][i].selected = null;
     }
+    this.kerdesek[this.selectedTopic] = this.shuffle(this.kerdesek[this.selectedTopic]);
+    this.selectedTopic = '';
   }
 
   onSubmit() {
@@ -108,7 +121,7 @@ export default class QuizComponent {
       // console.log(this.kerdesek[i].selected);
       if (this.kerdesek[this.selectedTopic][i].selected === this.kerdesek[this.selectedTopic][i].valasz.toString()) {
         console.log('correct');
-        this.correct++;
+        this.correct += 1;
       } else {
         console.log('not correct');
       }
@@ -116,11 +129,5 @@ export default class QuizComponent {
     console.log('correct answers: ' + this.correct);
   }
 
-  shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
+
 }
