@@ -7,6 +7,8 @@ import QuestionHeaderComponent from '../question-header/question-header';
 import QuizActionsComponent from '../quiz-actions/quiz-actions';
 import QuizResultComponent from '../quiz-result/quiz-result';
 import StartComponent from '../start-component/start-component';
+import OrderingToolComponent from '../ordering_tool/orderingtool';
+import OrderingInputComponent from '../ordering-input/ordering-input';
 
 export default angular
   .module('workshop-02', [])
@@ -18,4 +20,6 @@ export default angular
   .component('quizActionsComponent', QuizActionsComponent.create())
   .component('quizResultComponent', QuizResultComponent.create())
   .component('startComponent', StartComponent.create())
+  .component('orderingToolComponent', OrderingToolComponent.create())
+  .component('orderingInputComponent', OrderingInputComponent.create())
   .name;
