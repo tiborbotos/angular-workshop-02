@@ -9,6 +9,7 @@ import QuizResultComponent from '../quiz-result/quiz-result';
 import StartComponent from '../start-component/start-component';
 import OrderingToolComponent from '../ordering_tool/orderingtool';
 import OrderingInputComponent from '../ordering-input/ordering-input';
+import OrderingItemComponent from '../ordering-item/ordering-item';
 
 export default angular
   .module('workshop-02', [])
@@ -22,4 +23,5 @@ export default angular
   .component('startComponent', StartComponent.create())
   .component('orderingToolComponent', OrderingToolComponent.create())
   .component('orderingInputComponent', OrderingInputComponent.create())
+  .component('orderingItemComponent', OrderingItemComponent.create())
   .name;

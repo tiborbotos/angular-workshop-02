@@ -1,0 +1,60 @@
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
+</head>
+
+<h2>Mit iszol?</h2>
+
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control col-md-6"
+    aria-describedby="button-addon2">
+
+  <div class="input-group-append">
+    <button
+      class="btn btn-success add-drink-btn"
+      type="button"
+      id="button-addon2">Add drink</button>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">drink</th>
+    <th scope="col">edit</th>
+    <th scope="col">delete</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr ng-repeat="drink in $ctrl.drinkList">
+    <th class="id" scope="row">{{$index + 1}}</th>
+    <td>{{drink}}</td>
+
+    <td class="edit">
+      <button
+        ng-if="$ctrl.editIndex === null"
+        ng-click="$ctrl.onEdit($index)"
+        class="btn btn-outline-primary">
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+    </td>
+
+    <!-- delete todoItem button -->
+    <td class="delete">
+      <button
+        ng-if="$ctrl.editIndex === null"
+        ng-click="$ctrl.onDelete($index)"
+        class="btn btn-outline-danger">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+
+  </tr>
+  </tbody>
+
+</table>
+
+<button class="submit-order-btn">Submit order</button>
