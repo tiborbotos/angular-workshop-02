@@ -34,11 +34,34 @@
   <tbody>
   <tr ng-repeat="drink in $ctrl.drinkList">
     <th class="id" scope="row">{{$index + 1}}</th>
-    <td>{{drink}}</td>
+    <td>
+      <div ng-if="$index === $ctrl.editIndex">
+        <input class="form-control"
+               ng-keyup="$ctrl.onOk($event)"
+               ng-model="$ctrl.editedDrink">
+
+        <!-- save button for update-->
+        <button class="btn btn-success"
+                ng-click="$ctrl.onUpdate()">
+                <i class="fas fa-check"></i>
+        </button>
+
+        <!-- cancel button for update -->
+        <button class="btn btn-danger"
+                ng-click="$ctrl.onCancel()">cancel</button>
+      </div>
+
+      <div ng-if="$index !== $ctrl.editIndex"
+           ng-click="$ctrl.onEdit($index)">
+        {{drink}}
+      </div>
+    </td>
 
     <!--  edit drink item button -->
    <td class="edit">
       <button
+        ng-if="$ctrl.editIndex === null"
+        ng-click="$ctrl.onEditItem($index)"
         class="btn btn-outline-primary">
         <i class="fas fa-pencil-alt"></i>
       </button>
@@ -47,7 +70,8 @@
     <!--  delete drink item button -->
    <td class="delete">
      <button
-       ng-click="$ctrl.onDelete(index)"
+       ng-if="$ctrl.editIndex === null"
+       ng-click="$ctrl.onDelete($index)"
        class="btn btn-outline-danger">
        <i class="fas fa-trash-alt"></i>
      </button>

@@ -8,6 +8,8 @@ export default class OrderingItemComponent {
 
   newDrink = "";
   drinkList = ['szoda', 'limonade', 'rum'];
+  editIndex = null;
+  editedDrink = null;
 
   onAdd() {
     if (this.newDrink.length > 0) {
@@ -24,5 +26,21 @@ export default class OrderingItemComponent {
 
   onDelete(index) {
     this.drinkList.splice(index, 1);
+  }
+
+  onEditItem(index) {
+    console.log('clicked edit');
+    this.editIndex = index;
+    this.editedDrink = this.drinkList[index];
+  }
+
+  onUpdate(){
+    console.log('clicked update');
+    this.drinkList[this.editIndex] = this.editedDrink;
+    this.editIndex = null;
+  }
+
+  onCancel() {
+    this.editIndex = null;
   }
 }
