@@ -6,12 +6,15 @@
 
 <div class="input-group mb-3">
   <input
+    ng-model="$ctrl.newDrink"
+    ng-keyup="$ctrl.onEnter($event)"
     type="text"
     class="form-control col-md-6"
     aria-describedby="button-addon2">
 
   <div class="input-group-append">
     <button
+      ng-click="$ctrl.onAdd()"
       class="btn btn-success add-drink-btn"
       type="button"
       id="button-addon2">Add drink</button>
@@ -33,24 +36,22 @@
     <th class="id" scope="row">{{$index + 1}}</th>
     <td>{{drink}}</td>
 
-    <td class="edit">
+    <!--  edit drink item button -->
+   <td class="edit">
       <button
-        ng-if="$ctrl.editIndex === null"
-        ng-click="$ctrl.onEdit($index)"
         class="btn btn-outline-primary">
         <i class="fas fa-pencil-alt"></i>
       </button>
     </td>
 
-    <!-- delete todoItem button -->
-    <td class="delete">
-      <button
-        ng-if="$ctrl.editIndex === null"
-        ng-click="$ctrl.onDelete($index)"
-        class="btn btn-outline-danger">
-        <i class="fas fa-trash-alt"></i>
-      </button>
-    </td>
+    <!--  delete drink item button -->
+   <td class="delete">
+     <button
+       ng-click="$ctrl.onDelete(index)"
+       class="btn btn-outline-danger">
+       <i class="fas fa-trash-alt"></i>
+     </button>
+   </td>
 
   </tr>
   </tbody>
