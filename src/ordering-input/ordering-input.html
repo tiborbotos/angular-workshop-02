@@ -1,28 +1,51 @@
-<label>Name</label>
-<input type="text"
-       placeholder="name"
-       class="form-control col-md-6">
+<form name="form">
+  <div>
+    <label for="name">Name *</label>
+    <input type="text"
+           id="name"
+           name="name"
+           ng-required="true"
+           ng-model="nameInput"
+           placeholder="name"
+           class="form-control col-md-6">
+  </div>
 
-<label>Age</label>
-<select class="form-control col-md-6">
-  <option selected>Choose...</option>
-  <option>17</option>
-  <option>18</option>
-  <option>19</option>
-  <option>20</option>
-  <option>21</option>
-  <option>22</option>
-  <option>..</option>
-</select>
+<!--
+  <label>Age *</label>
+  <select class="age-select form-control col-md-6" required min="18">
+    <option selected>Choose...</option>
+    <option>17</option>
+    <option>18</option>
+    <option>19</option>
+    <option>20</option>
+    <option>21</option>
+    <option>22</option>
+    <option>..</option>
+  </select>
+-->
+  <div>
+    <label>How old are you? *</label>
+    <input type="number"
+           ng-required="true"
+           ng-model="$ctrl.ageInput"
+           min="18"
+           name="age"
+           class="age">
+  </div>
 
-<label>Special</label>
-<select class="form-control col-md-6">
-  <option selected>Choose special diet</option>
-  <option>Lactose</option>
-  <option>Gluten</option>
-  <option>Vegetarian</option>
-  <option>Vegan</option>
-  <option>..</option>
-</select>
+  <label class="special">Special</label>
+  <select class="form-control col-md-6">
+    <option selected>Choose special diet</option>
+    <option>Lactose</option>
+    <option>Gluten</option>
+    <option>Vegetarian</option>
+    <option>Vegan</option>
+    <option>..</option>
+  </select>
 
-<button class="next-btn">Next</button>
+  <p class="required">* required</p>
+  <button ng-disabled="form.$invalid" class="submit-btn" type="submit" ng-click="$ctrl.onNext()">Next step</button>
+
+  <div id="error"></div>
+
+</form>

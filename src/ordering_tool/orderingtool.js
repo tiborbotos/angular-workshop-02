@@ -5,4 +5,7 @@ export default class OrderingToolComponent {
       controller: OrderingToolComponent,
     };
   }
+  constructor() {
+    this.isShow = false;
+  }
 }
