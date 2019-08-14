@@ -1,15 +1,12 @@
 <div class="order-summary">
-  <h3 class="h3-ordersummary">this is your order summary</h3>
+  <h3 class="h3-ordersummary">order summary</h3>
 
   <div class="person-detail">
-    <p class="name-input">Name: </p>
-    <p>{{ $ctrl.bNameInput }}</p>
+    <p class="name-input">Name: <span>{{ $ctrl.bNameInput }}</span></p>
   </div>
 
   <div class="drinks-ordered">
     <p class="drinks-summary">Drinks ordered:</p>
     <div ng-repeat="drink in $ctrl.finalDrinkList">{{drink}}</div>
   </div>
-
 </div>
-

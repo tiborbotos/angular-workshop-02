@@ -25,7 +25,7 @@ export default class OrderingItemComponent {
       this.drinkList.push(this.newDrink);
     } else {
       console.log('couldnt validate');
-      this.errorMessage = 'order must include a quantity and the name of the drink';
+      this.errorMessage = 'order must include the quantity and the name of the drink';
     }
     this.newDrink = '';
   }
