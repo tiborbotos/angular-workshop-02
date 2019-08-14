@@ -3,6 +3,13 @@ export default class OrderingFinalComponent {
     return {
       template: require('./ordering-final.html'),
       controller: OrderingFinalComponent,
+      bindings: {
+        bNameInput: '<',
+      },
     };
+  }
+
+  onSubmitOrder() {
+    console.log('this is on submit order');
   }
 }

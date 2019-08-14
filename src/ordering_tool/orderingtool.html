@@ -1,5 +1,5 @@
-<ordering-input-component ng-if="!$ctrl.isShow" b-show="$ctrl.isShow"></ordering-input-component>
+<ordering-input-component ng-if="!$ctrl.isShow" b-show="$ctrl.isShow" b-name-input="$ctrl.nameInput"></ordering-input-component>
 
 <ordering-item-component ng-if="$ctrl.isShow"></ordering-item-component>
 
-<ordering-final-component></ordering-final-component>
+<ordering-final-component ng-if="$ctrl.isShow" b-name-input="$ctrl.nameInput"></ordering-final-component>

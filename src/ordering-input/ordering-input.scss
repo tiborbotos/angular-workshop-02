@@ -29,7 +29,7 @@ select, input {
 }
 
 input:invalid {
-  border: 2px dashed red;
+  border: 1px solid red;
 }
 
 input:valid {

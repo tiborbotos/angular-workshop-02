@@ -7,5 +7,6 @@ export default class OrderingToolComponent {
   }
   constructor() {
     this.isShow = false;
+    this.nameInput = '';
   }
 }

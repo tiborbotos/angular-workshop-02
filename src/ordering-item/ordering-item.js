@@ -7,15 +7,22 @@ export default class OrderingItemComponent {
   }
 
   newDrink = "";
-  drinkList = ['szoda', 'limonade', 'rum'];
+  drinkList = ['aji szóda'];
   editIndex = null;
   editedDrink = null;
+  errorMessage = '';
 
   onAdd() {
-    if (this.newDrink.length > 0) {
+    this.errorMessage = '';
+    const regex = RegExp('^[0-9].+$');
+    if (regex.test(this.newDrink)){
+      console.log('validated');
       this.drinkList.push(this.newDrink);
-      this.newDrink = "";
+    } else {
+      console.log('couldnt validate');
+      this.errorMessage = 'order must include a quantity and the name of the drink';
     }
+    this.newDrink = '';
   }
 
   onEnter(event){

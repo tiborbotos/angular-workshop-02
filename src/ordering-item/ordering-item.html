@@ -9,7 +9,7 @@
     ng-model="$ctrl.newDrink"
     ng-keyup="$ctrl.onEnter($event)"
     type="text"
-    class="form-control col-md-6"
+    class="form-control col-md-6 drink"
     aria-describedby="button-addon2">
 
   <div class="input-group-append">
@@ -20,6 +20,8 @@
       id="button-addon2">Add drink</button>
   </div>
 </div>
+
+<div class="error-message">{{$ctrl.errorMessage}}</div>
 
 <table class="table table-striped">
   <thead>
@@ -82,4 +84,4 @@
 
 </table>
 
-<button class="submit-order-btn">Submit order</button>
+<button class="submit-order-btn" ng-click="$ctrl.onSubmitOrder()">Submit order</button>
