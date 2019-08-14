@@ -9,6 +9,17 @@ export default class OrderingFinalComponent {
     };
   }
 
+  constructor($rootScope) {
+    /* ngInject */
+    this.$rootScope = $rootScope;
+    this.$rootScope.$on('drinksOrdered', (event, drinkList) => {
+      console.log(drinkList);
+      this.finalDrinkList = [...drinkList];
+    });
+  }
+
+  finalDrinkList = [];
+
   onSubmitOrder() {
     console.log('this is on submit order');
   }

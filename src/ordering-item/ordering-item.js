@@ -6,6 +6,11 @@ export default class OrderingItemComponent {
     };
   }
 
+  constructor($rootScope) {
+    /* ngInject */
+    this.$rootScope = $rootScope;
+  }
+
   newDrink = "";
   drinkList = ['aji szóda'];
   editIndex = null;
@@ -49,5 +54,9 @@ export default class OrderingItemComponent {
 
   onCancel() {
     this.editIndex = null;
+  }
+
+  onSubmitOrder() {
+    this.$rootScope.$emit('drinksOrdered', this.drinkList);
   }
 }
