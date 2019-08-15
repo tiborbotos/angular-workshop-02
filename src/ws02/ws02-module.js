@@ -11,6 +11,7 @@ import OrderingToolComponent from '../ordering_tool/orderingtool';
 import OrderingInputComponent from '../ordering-input/ordering-input';
 import OrderingItemComponent from '../ordering-item/ordering-item';
 import OrderingFinalComponent from '../ordering-final/ordering-final';
+import OrdersService from '../ordering_tool/orders.service.ts';
 
 export default angular
   .module('workshop-02', [])
@@ -26,4 +27,5 @@ export default angular
   .component('orderingInputComponent', OrderingInputComponent.create())
   .component('orderingItemComponent', OrderingItemComponent.create())
   .component('orderingFinalComponent', OrderingFinalComponent.create())
+  .service('ordersService', OrdersService)
   .name;

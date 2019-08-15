@@ -5,11 +5,12 @@ export default class OrderingToolComponent {
       controller: OrderingToolComponent,
     };
   }
-  constructor($rootScope) {
+  constructor($rootScope, ordersService) {
     /* ngInject */
     this.isShow = false;
     this.nameInput = '';
     this.$rootScope = $rootScope;
+    this.ordersService = ordersService;
     console.log($rootScope);
   }
 }
