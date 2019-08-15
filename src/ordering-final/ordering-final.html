@@ -7,6 +7,6 @@
 
   <div class="drinks-ordered">
     <p class="drinks-summary">Drinks ordered:</p>
-    <div ng-repeat="drink in $ctrl.finalDrinkList">{{drink}}</div>
+    <div ng-repeat="drink in $ctrl.finalDrinkList track by $index">{{drink}}</div>
   </div>
 </div>

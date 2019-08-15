@@ -34,12 +34,12 @@
   </thead>
 
   <tbody>
-  <tr ng-repeat="drink in $ctrl.drinkList">
+  <tr ng-repeat="drink in $ctrl.drinkList track by $index">
     <th class="id" scope="row">{{$index + 1}}</th>
     <td>
       <div ng-if="$index === $ctrl.editIndex">
         <input class="form-control"
-               ng-keyup="$ctrl.onOk($event)"
+               ng-keyup="$ctrl.onEnterUpdate($event)"
                ng-model="$ctrl.editedDrink">
 
         <!-- save button for update-->

@@ -19,7 +19,7 @@ export default class OrderingItemComponent {
 
   onAdd() {
     this.errorMessage = '';
-    const regex = RegExp('^[0-9].+$');
+    const regex = RegExp(/\d/);
     if (regex.test(this.newDrink)){
       console.log('validated');
       this.drinkList.push(this.newDrink);
@@ -36,6 +36,12 @@ export default class OrderingItemComponent {
     }
   }
 
+  onEnterUpdate(event) {
+    if (event.which === 13){
+      this.onUpdate();
+    }
+  }
+
   onDelete(index) {
     this.drinkList.splice(index, 1);
   }
@@ -47,9 +53,15 @@ export default class OrderingItemComponent {
   }
 
   onUpdate(){
+    this.errorMessage = '';
     console.log('clicked update');
-    this.drinkList[this.editIndex] = this.editedDrink;
-    this.editIndex = null;
+    const regex = RegExp(/\d/);
+    if (regex.test(this.editedDrink)){
+      this.drinkList[this.editIndex] = this.editedDrink;
+      this.editIndex = null;
+    } else {
+      this.errorMessage = 'order must include the quantity and the name of the drink';
+    }
   }
 
   onCancel() {
