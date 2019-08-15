@@ -1,0 +1,106 @@
+{
+  "extends": "tslint-config-airbnb-base",
+  "rules": {
+    "ter-max-len": [
+      true,
+      120,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "align": [
+      true,
+      "parameters"
+    ],
+    "max-line-length": [
+      true,
+      120
+    ],
+    "no-empty": [
+      true,
+      "allow-empty-functions"
+    ],
+    "no-unused-variable": true,
+    "indent": false,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case",
+      "allow-leading-underscore"
+    ],
+    "ter-indent": [
+      true,
+      2,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1,
+        "outerIIFEBody": 1,
+        "FunctionDeclaration": {
+          "parameters": 1,
+          "body": 1
+        },
+        "FunctionExpression": {
+          "parameters": "first",
+          "body": 1
+        },
+        "CallExpression": {
+          "arguments": 1
+        },
+        "ArrayExpression": 1,
+        "ObjectExpression": 1,
+        "ImportDeclaration": 1,
+        "flatTernaryExpressions": false,
+        "ignoredNodes": [
+          "JSXElement",
+          "JSXElement > *",
+          "JSXAttribute",
+          "JSXIdentifier",
+          "JSXNamespacedName",
+          "JSXMemberExpression",
+          "JSXSpreadAttribute",
+          "JSXExpressionContainer",
+          "JSXOpeningElement",
+          "JSXClosingElement",
+          "JSXText",
+          "JSXEmptyExpression",
+          "JSXSpreadChild"
+        ],
+        "ignoreComments": false
+      }
+    ],
+    "linebreak-style": false,
+    "member-access": [
+      true,
+      "no-public"
+    ],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "private-static-field",
+          "public-static-method",
+          "private-static-method",
+          "public-instance-field",
+          "private-instance-field",
+          "public-constructor",
+          "private-constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ]
+      }
+    ]
+  },
+  "no-duplicate-imports": true,
+  "no-console": [
+    true,
+    "log"
+  ]
+}

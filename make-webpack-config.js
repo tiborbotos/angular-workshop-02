@@ -165,27 +165,19 @@ module.exports = function makeWebpackConfig(options) {
 
   plugins.push(new webpack.DefinePlugin(definitions));
 
-  let jsRules;
-
-  if (options.cover) {
-    jsRules = [
-      // transpile all files except testing sources with babel as usual
-      {
-        test: /\.test\.[tj]sx?$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-    ];
-  } else {
-    jsRules = [
-      {
-        test: /\.[jt]sx?$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/,
-      },
-    ];
-  }
-
+  const jsRules = [
+    // transpile all files except testing sources with babel as usual
+    {
+      test: /\.[j]sx?$/,
+      exclude: /node_modules/,
+      use: ['babel-loader'],
+    },
+    {
+      test: /\.[t]sx?$/,
+      exclude: /node_modules/,
+      use: ['babel-loader', 'ts-loader'],
+    },
+  ];
   return {
     mode: options.mode || 'development',
     entry,

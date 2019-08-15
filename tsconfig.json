@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "esnext",
+    "sourceMap": true,
+    "declaration": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
