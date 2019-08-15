@@ -6,9 +6,11 @@ export default class OrdersService {
     console.log('Az AngularJS servicek azonnal elindulnak ahogy a bongeszo betolt');
   }
 
-  ujSzamla() {
+  ujSzamla(drinkList:Array<string>) {
+    let numb:number = 0;
     // TODO
     // this.$rootScope.$emit
+    this.$rootScope.$emit('drinksOrdered', drinkList);
   }
 
   foo() {}

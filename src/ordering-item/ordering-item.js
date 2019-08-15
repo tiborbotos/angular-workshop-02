@@ -6,9 +6,10 @@ export default class OrderingItemComponent {
     };
   }
 
-  constructor($rootScope) {
+  constructor($rootScope, ordersService) {
     /* ngInject */
     this.$rootScope = $rootScope;
+    this.ordersService = ordersService;
   }
 
   newDrink = "";
@@ -69,6 +70,6 @@ export default class OrderingItemComponent {
   }
 
   onSubmitOrder() {
-    this.$rootScope.$emit('drinksOrdered', this.drinkList);
+    this.ordersService.ujSzamla(this.drinkList);
   }
 }
