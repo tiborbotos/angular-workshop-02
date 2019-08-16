@@ -11,16 +11,16 @@ export default class ButtonGameBComponent {
   randomTime = 0;
   randomTimeMin = 1000;
   randomTimeMax = 2000;
-  colorArray = ['pink', 'green', 'red', 'blue', 'grey'];
+  colorArray = ['pink', 'green', 'red', 'blue', 'grey', 'deeppink', 'yellow', 'turquoise', 'orange'];
   randomColor = '';
 
   constructor(private $rootScope: angular.IRootScopeService,
               private $timeout: angular.ITimeoutService) {
     /* ngInject */
     this.randomTime = this.getRandomTime(this.randomTimeMin, this.randomTimeMax);
-    this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
 
     this.$rootScope.$on('clickedB', event => {
+      this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
       this.$timeout(() => {
         this.isShow = true;
       }, 1000);
