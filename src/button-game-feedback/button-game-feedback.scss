@@ -1,0 +1,20 @@
+.cards {
+  position: absolute;
+  top: 40%;
+  display: flex;
+  left: 30%;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 40%;
+  width: 100%;
+}
+
+.card {
+  height: 140px;
+  border: 2px solid black;
+  flex-basis: 140px;
+  margin-bottom: 20px;
+}
