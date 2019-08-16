@@ -7,7 +7,18 @@ export default class ButtonGameButtonsComponent {
       controller: ButtonGameButtonsComponent,
     };
   }
+
   constructor(private $rootScope: angular.IRootScopeService) {
-    console.log('Az AngularJS servicek azonnal elindulnak ahogy a bongeszo betolt');
+    /* ngInject */
+  }
+
+  onClickedA() {
+    console.log('clicked A');
+    this.$rootScope.$emit('clickedA');
+  }
+
+  onClickedB() {
+    console.log('clicked B');
+    this.$rootScope.$emit('clickedB');
   }
 }

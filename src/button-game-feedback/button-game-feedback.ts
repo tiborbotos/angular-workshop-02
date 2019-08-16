@@ -7,7 +7,4 @@ export default class ButtonGameFeedbackComponent {
       controller: ButtonGameFeedbackComponent,
     };
   }
-  constructor(private $rootScope: angular.IRootScopeService) {
-    console.log('Az AngularJS servicek azonnal elindulnak ahogy a bongeszo betolt');
-  }
 }

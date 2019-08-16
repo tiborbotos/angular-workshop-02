@@ -7,7 +7,12 @@ export default class ButtonGameAComponent {
       controller: ButtonGameAComponent,
     };
   }
+  isShow = false;
+
   constructor(private $rootScope: angular.IRootScopeService) {
-    console.log('Az AngularJS servicek azonnal elindulnak ahogy a bongeszo betolt');
+    /* ngInject */
+    this.$rootScope.$on('clickedA', event => {
+      this.isShow = !this.isShow;
+    })
   }
 }
