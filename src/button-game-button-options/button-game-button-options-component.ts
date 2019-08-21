@@ -1,10 +1,14 @@
 import * as angular from 'angular';
 
-export default class ButtonGameAComponent {
+export default class ButtonGameButtonOptionsComponent {
   static create() {
     return {
-      template: require('./button-game-a.html'),
-      controller: ButtonGameAComponent,
+      template: require('./button-game-button-options.html'),
+      controller: ButtonGameButtonOptionsComponent,
+      bindings: {
+        isSelected: '<',
+        char: '<',
+      },
     };
   }
   isShow = false;
@@ -13,24 +17,27 @@ export default class ButtonGameAComponent {
   randomTimeMax = 2000;
   colorArray = ['pink', 'green', 'red', 'blue', 'grey', 'deeppink', 'yellow', 'turquoise', 'orange'];
   randomColor = '';
+  char:string;
+  id:string;
+  idOptions = ['A', 'B', 'C'];
 
   constructor(private $rootScope: angular.IRootScopeService,
               private $timeout: angular.ITimeoutService) {
     /* ngInject */
+    this.id = this.idOptions[this.getRandomId(0, 3)];
     this.randomTime = this.getRandomTime(this.randomTimeMin, this.randomTimeMax);
+    this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
 
-    this.$rootScope.$on('clickedA', event => {
-      this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
-      this.$timeout(() => {
-        console.log('timeout check in');
-        this.isShow = true;
-      }, 1000);
-
+    this.$rootScope.$on('clickedButton', (event, data) => {
       this.$timeout(() => {
         console.log('timeout check out');
-        this.isShow = false;
+        this.char = '';
       }, 1000 + this.randomTime);
     })
+  }
+
+  getRandomId(min:number = 0, max:number = 3) {
+    return Math.floor(Math.random() * (max-min) + min);
   }
 
   getRandomTime(min:number, max:number) {

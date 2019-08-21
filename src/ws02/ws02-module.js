@@ -15,8 +15,7 @@ import OrdersService from '../ordering_tool/orders.service.ts';
 import ButtonGameComponent from '../button-game/button-game';
 import ButtonGameButtonsComponent from '../button-game-buttons/button-game-buttons.ts';
 import ButtonGameFeedbackComponent from '../button-game-feedback/button-game-feedback';
-import ButtonGameAComponent from '../button-game-a/button-game-a';
-import ButtonGameBComponent from '../button-game-b/button-game-b';
+import ButtonGameButtonOptionsComponent from '../button-game-button-options/button-game-button-options-component';
 
 export default angular
   .module('workshop-02', [])
@@ -36,6 +35,5 @@ export default angular
   .component('buttonGameComponent', ButtonGameComponent.create())
   .component('buttonGameButtonsComponent', ButtonGameButtonsComponent.create())
   .component('buttonGameFeedbackComponent', ButtonGameFeedbackComponent.create())
-  .component('buttonGameAComponent', ButtonGameAComponent.create())
-  .component('buttonGameBComponent', ButtonGameBComponent.create())
+  .component('buttonGameButtonOptionsComponent', ButtonGameButtonOptionsComponent.create())
   .name;

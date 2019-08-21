@@ -12,13 +12,8 @@ export default class ButtonGameButtonsComponent {
     /* ngInject */
   }
 
-  onClickedA() {
-    console.log('clicked A');
-    this.$rootScope.$emit('clickedA');
-  }
-
-  onClickedB() {
-    console.log('clicked B');
-    this.$rootScope.$emit('clickedB');
+  onClicked(param:string):void {
+    this.$rootScope.$emit('clickedButton', param);
+    console.log('works' + param);
   }
 }
