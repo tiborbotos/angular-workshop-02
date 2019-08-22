@@ -1,14 +1,11 @@
 <button-game-buttons-component ></button-game-buttons-component>
-<div class="cards">
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-  <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
-</div>
+
+<table>
+  <tr ng-repeat="r in [].constructor($ctrl.rowNumber) track by $index"> 
+    <td ng-repeat="c in [].constructor($ctrl.columnNumber) track by $index">
+      <button-game-button-options-component char="$ctrl.clickedChar"></button-game-button-options-component>
+    </td> 
+  </tr>
+</table>
 
 <button-game-feedback-component></button-game-feedback-component>

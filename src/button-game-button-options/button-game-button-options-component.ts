@@ -26,13 +26,13 @@ export default class ButtonGameButtonOptionsComponent {
     /* ngInject */
     this.id = this.idOptions[this.getRandomId(0, 3)];
     this.randomTime = this.getRandomTime(this.randomTimeMin, this.randomTimeMax);
-    this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
-
+    
     this.$rootScope.$on('clickedButton', (event, data) => {
+      this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
       this.$timeout(() => {
         console.log('timeout check out');
         this.char = '';
-      }, 1000 + this.randomTime);
+      }, 300 + this.randomTime);
     })
   }
 
