@@ -1,6 +1,6 @@
 .card {
-  line-height: 140px;
-  border: 2px solid black;
+  line-height: 60px;
+  border: 2px solid #3066BE;
   text-align: center;
   font-size: 40px;
   max-width: 300px;
@@ -8,8 +8,5 @@
 
 button-game-button-options-component {
   height: 140px;
-  line-height: 140px;
   flex-basis: 140px;
-  text-align: center;
-  margin-bottom: 20px;
 }

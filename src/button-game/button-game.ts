@@ -9,7 +9,7 @@ export default class ButtonGameComponent {
   }
   clickedChar:string;
   columnNumber = 15;
-  rowNumber = 5;
+  rowNumber = 30;
 
   constructor(private $rootScope: angular.IRootScopeService,
               private $timeout: angular.ITimeoutService) {

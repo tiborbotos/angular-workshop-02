@@ -1,6 +1,6 @@
 .buttons {
   position: absolute;
-  top: 30%;
+  top: 5%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -9,6 +9,9 @@
 .btn-a, .btn-b, .btn-c {
   width: 70px;
   height: 70px;
-  font-size: 24px;
+  font-size: 34px;
   margin-left: 20px;
+  background-color: #963484;
+  color: white;
+  border: none;
 }
