@@ -30,14 +30,18 @@ export default class ButtonGameButtonOptionsComponent {
     this.randomTime = this.getRandomTime(this.randomTimeMin, this.randomTimeMax);
     
     this.$rootScope.$on('clickedButton', (event, data) => {
-      this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
+      this.onClickedButton();
+    })
+  }
+
+  onClickedButton() {
+    this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
       this.randomColorTwo = this.colorArray[this.getRandomColor(this.colorArray)];
       
       this.$timeout(() => {
         console.log('timeout check out');
         this.char = '';
       }, 300 + this.randomTime);
-    })
   }
 
   getRandomId(min:number = 0, max:number = 3) {
