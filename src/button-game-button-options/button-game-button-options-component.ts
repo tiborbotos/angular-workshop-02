@@ -17,6 +17,8 @@ export default class ButtonGameButtonOptionsComponent {
   randomTimeMax = 2000;
   colorArray = ['pink', 'green', 'red', 'blue', 'grey', 'deeppink', 'yellow', 'turquoise', 'orange'];
   randomColor = '';
+  randomColorTwo = '';
+  randomColors = '';
   char:string;
   id:string;
   idOptions = ['A', 'B', 'C'];
@@ -29,6 +31,8 @@ export default class ButtonGameButtonOptionsComponent {
     
     this.$rootScope.$on('clickedButton', (event, data) => {
       this.randomColor = this.colorArray[this.getRandomColor(this.colorArray)];
+      this.randomColorTwo = this.colorArray[this.getRandomColor(this.colorArray)];
+      
       this.$timeout(() => {
         console.log('timeout check out');
         this.char = '';
@@ -46,5 +50,13 @@ export default class ButtonGameButtonOptionsComponent {
 
   getRandomColor(colorArray:Array<string>){
     return Math.floor(Math.random() * this.colorArray.length);
+  }
+
+  get showElement() {
+    return this.id === this.char
+  }
+
+  get getTwoRandomColors() {
+    return {'background':`linear-gradient(${this.randomColor}, ${this.randomColorTwo})`};
   }
 }

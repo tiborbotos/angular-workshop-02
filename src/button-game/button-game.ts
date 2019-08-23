@@ -8,7 +8,7 @@ export default class ButtonGameComponent {
     };
   }
   clickedChar:string;
-  columnNumber = 15;
+  columnNumber = 25;
   rowNumber = 30;
 
   constructor(private $rootScope: angular.IRootScopeService,
