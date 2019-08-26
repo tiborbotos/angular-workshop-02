@@ -17,6 +17,7 @@ import ButtonGameButtonsComponent from '../button-game-buttons/button-game-butto
 import ButtonGameFeedbackComponent from '../button-game-feedback/button-game-feedback';
 import ButtonGameAComponent from '../button-game-a/button-game-a';
 import ButtonGameBComponent from '../button-game-b/button-game-b';
+import ButtonGameUltimateComponent from '../button-game-ultimate/button-game-ultimate.component';
 
 export default angular
   .module('workshop-02', [])
@@ -38,4 +39,5 @@ export default angular
   .component('buttonGameFeedbackComponent', ButtonGameFeedbackComponent.create())
   .component('buttonGameAComponent', ButtonGameAComponent.create())
   .component('buttonGameBComponent', ButtonGameBComponent.create())
+  .component('buttonGameUltimateComponent', ButtonGameUltimateComponent.create())
   .name;

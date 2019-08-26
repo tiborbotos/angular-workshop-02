@@ -14,11 +14,15 @@ export default class ButtonGameButtonsComponent {
 
   onClickedA() {
     console.log('clicked A');
-    this.$rootScope.$emit('clickedA');
+    this.$rootScope.$emit('clicked', 'A');
   }
 
   onClickedB() {
     console.log('clicked B');
-    this.$rootScope.$emit('clickedB');
+    this.$rootScope.$emit('clicked', 'B');
+  }
+  onClickedC() {
+    console.log('clicked C');
+    this.$rootScope.$emit('clicked', 'C');
   }
 }
